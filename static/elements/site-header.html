@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+
+<dom-module id="site-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+        text-align: center;
+      }
+
+      .names {
+        color: rgba(0, 0, 0, .87);
+
+        font-family: Arvo;
+        font-size: 48px;
+        margin: 32px 0;
+        text-transform: uppercase;
+        line-height: 60px;
+        vertical-align: middle;
+      }
+
+      .amp {
+        font-family: Lobster;
+        font-size: 60px;
+        color: #EEE6CF;
+      }
+
+      paper-tabs {
+        background: #EEE6CF;
+        font-family: 'Arvo';
+
+        --paper-tabs-selection-bar-color: #D4FFDE;
+      }
+
+      paper-tab {
+        --paper-tab-ink: #d4ffde;
+      }
+    </style>
+
+    <div class="names">
+      <span class="name">Zachary</span> <span class="amp">&amp;</span> <span class="name">Chelsea</span>
+    </div>
+
+    <paper-tabs selected="0">
+      <paper-tab>About Us</paper-tab>
+      <paper-tab>RSVP</paper-tab>
+      <paper-tab>Getting There</paper-tab>
+      <paper-tab>Staying There</paper-tab>
+      <paper-tab>Registries</paper-tab>
+    </paper-tabs>
+  </template>
+  <script>
+    Polymer({
+      is: 'site-header',
+
+    });
+  </script>
+</dom-module>

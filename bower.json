@@ -1,0 +1,23 @@
+{
+  "name": "matrimony",
+  "version": "1.0.0",
+  "homepage": "https://github.com/zacharytamas/matrimony",
+  "authors": [
+    "Zachary Jones <zacharytamas@gmail.com>"
+  ],
+  "description": "My wedding website.",
+  "keywords": [
+    "wedding"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.1.5"
+  }
+}

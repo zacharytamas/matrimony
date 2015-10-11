@@ -8,10 +8,12 @@
 
 <link rel="import" href="site-header.html">
 <link rel="import" href="photo-cover.html">
+<link rel="import" href="staying/staying-there.html">
 
 <dom-module id="matrimony-site">
   <template>
     <style>
+
       :host {
         display: block;
 
@@ -26,57 +28,40 @@
         font-family: var(--font-text);
       }
 
-      neon-animated-pages {
+      #content {
         max-width: var(--size-master);
         margin: 0 auto;
       }
     </style>
 
     <paper-header-panel class="fit" mode="waterfall-tall">
+
       <site-header class="paper-header"
         selected-page="{{selectedPage}}"></site-header>
 
-      <neon-animated-pages class="fit"
-        selected="[[selectedPage]]" attr-for-selected="name"
-        entry-animation="fade-in-animation"
-        exit-animation="fade-out-animation">
-
-        <neon-animatable name="splash">
-          <photo-cover></photo-cover>
-        </neon-animatable>
-
-        <neon-animatable name="about-us">
-          <h1>About us</h1>
-        </neon-animatable>
-
-        <neon-animatable name="the-wedding">
-          <h1>The wedding</h1>
-        </neon-animatable>
-
-        <neon-animatable name="getting-there">
-          <h1>Getting there</h1>
-        </neon-animatable>
-
-        <neon-animatable name="staying-there">
-          <h1>Staying there</h1>
-        </neon-animatable>
-
-        <neon-animatable name="registries">
-          <h1>Registries</h1>
-        </neon-animatable>
-
-      </neon-animated-pages>
-    </paper-header-panel>
+      <div id="content"></div>
 
   </template>
   <script>
+
+    var M = window.M = {
+      weddingAddress: '2 Springfield Lane, Williamsport, MD 21795',
+      mapsKey: 'AIzaSyBaOLunG39Qqixju2ugr9W3iaVG1lAQJ1o'
+    };
+
     Polymer({
       is: 'matrimony-site',
+
       properties: {
-        selectedPage: {
+        pageElement: {
           type: String,
-          value: 'splash'
+          observer: '_pageElementChanged'
         }
+      },
+
+      _pageElementChanged: function(newValue) {
+        var el = document.createElement(newValue);
+        this.$.content.appendChild(el);
       }
     });
   </script>

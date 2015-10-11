@@ -90,8 +90,10 @@
         --paper-tab-ink: var(--color-mint);
       }
 
-      paper-tab.RSVP {
-        background-color: var(--color-mint);
+      paper-tab[link] a {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        text-decoration: none;
         color: rgba(0, 0, 0, 0.87);
       }
 
@@ -112,12 +114,12 @@
 
 
     <nav>
-      <paper-tabs selected="{{selectedPage}}" attr-for-selected="name" no-bar>
-        <paper-tab name="about-us">About Us</paper-tab>
-        <paper-tab name="the-wedding">The Wedding</paper-tab>
-        <paper-tab name="getting-there">Getting There</paper-tab>
-        <paper-tab name="staying-there">Staying There</paper-tab>
-        <paper-tab name="registries">Registries</paper-tab>
+      <paper-tabs no-bar>
+        <paper-tab link name=""><a href="/about-us/">About Us</a></paper-tab>
+        <paper-tab link name=""><a href="/the-wedding/">The Wedding</a></paper-tab>
+        <paper-tab link name=""><a href="/getting-there/">Getting There</a></paper-tab>
+        <paper-tab link name=""><a href="/staying-there/">Staying There</a></paper-tab>
+        <paper-tab link name=""><a href="/gift-registries/">Registries</a></paper-tab>
       </paper-tabs>
     </nav>
 
@@ -128,12 +130,11 @@
       properties: {
         selectedPage: {
           type: String,
-          notify: true
         }
       },
 
       _gotoSplash: function() {
-        this.selectedPage = 'splash';
+        window.location = '/';
       }
     });
   </script>

@@ -15,7 +15,7 @@
         --amp-size: 36px;
         --vertical-padding: 16px;
 
-        --name-size-tall: 36px;
+        --name-size-tall: 40px;
         --amp-size-tall: 48px;
         --vertical-padding-tall: 32px;
       }
@@ -28,6 +28,10 @@
 
       :host(.tall) .amp {
         font-size: var(--amp-size-tall);
+      }
+
+      :host(.tall) nav {
+        margin-bottom: 8px;
       }
 
       .masthead {
@@ -62,18 +66,19 @@
         transition: all 0.25s;
         font-family: Lobster;
         font-size: var(--amp-size);
-        color: #EEE6CF;
+        color: var(--color-coral);
       }
 
       nav {
         /*background: var(--color-burlap);*/
-        border: 1px var(--color-burlap) solid;
-        /*border-color: var(--color-burlap);*/
-        border-width: 1px 0;
-
+        transition: all 0.5s;
       }
 
       paper-tabs {
+        border-color: var(--color-coral);
+        border-style: double;
+        border-width: 3px 0;
+
         font-family: 'Arvo';
         max-width: var(--size-master);
         margin: 0 auto;
@@ -82,12 +87,16 @@
       }
 
       paper-tab {
-        --paper-tab-ink: var(--color-coral);
+        --paper-tab-ink: var(--color-mint);
       }
 
       paper-tab.RSVP {
         background-color: var(--color-mint);
         color: rgba(0, 0, 0, 0.87);
+      }
+
+      paper-button {
+        background: var(--color-mint);
       }
     </style>
 
@@ -103,7 +112,7 @@
 
 
     <nav>
-      <paper-tabs selected="{{selectedPage}}" attr-for-selected="name">
+      <paper-tabs selected="{{selectedPage}}" attr-for-selected="name" no-bar>
         <paper-tab name="about-us">About Us</paper-tab>
         <paper-tab name="the-wedding">The Wedding</paper-tab>
         <paper-tab name="getting-there">Getting There</paper-tab>

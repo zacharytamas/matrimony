@@ -61,23 +61,7 @@ gulp.task('vulcanize', function() {
 });
 
 gulp.task('develop', function() {
-
-  browserSync({
-    notify: false,
-    logPrefix: 'PSK',
-    snippetOptions: {
-      rule: {
-        match: '<span id="browser-sync-binding"></span>',
-        fn: function(snippet) {
-          return snippet;
-        }
-      }
-    },
-    proxy: 'localhost:8080'
-  });
-
   gulp.watch(['static/*.css'], ['styles']);
   gulp.watch(['static/*.scss'], ['sass']);
   gulp.watch(['static/elements-*.html', 'static/elements/**/*'], ['vulcanize']);
-  // gulp.watch(['static/dist/*.css'], browserSync.reload);
 });

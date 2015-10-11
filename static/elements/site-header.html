@@ -48,6 +48,7 @@
       .names {
         color: rgba(0, 0, 0, .87);
         transition: all 0.25s;
+        cursor: pointer;
 
         font-family: var(--font-text, Arvo);
         font-size: var(--name-size);
@@ -92,7 +93,7 @@
 
     <div class="masthead">
       <div class="bumper"></div>
-      <div class="names">
+      <div class="names" on-tap="_gotoSplash">
         <span class="name">Zachary</span> <span class="amp">&amp;</span> <span class="name">Chelsea</span>
       </div>
       <div class="bumper">
@@ -102,12 +103,12 @@
 
 
     <nav>
-      <paper-tabs selected="0">
-        <paper-tab>About Us</paper-tab>
-        <paper-tab>The Wedding</paper-tab>
-        <paper-tab>Getting There</paper-tab>
-        <paper-tab>Staying There</paper-tab>
-        <paper-tab>Registries</paper-tab>
+      <paper-tabs selected="{{selectedPage}}" attr-for-selected="name">
+        <paper-tab name="about-us">About Us</paper-tab>
+        <paper-tab name="the-wedding">The Wedding</paper-tab>
+        <paper-tab name="getting-there">Getting There</paper-tab>
+        <paper-tab name="staying-there">Staying There</paper-tab>
+        <paper-tab name="registries">Registries</paper-tab>
       </paper-tabs>
     </nav>
 
@@ -115,7 +116,16 @@
   <script>
     Polymer({
       is: 'site-header',
+      properties: {
+        selectedPage: {
+          type: String,
+          notify: true
+        }
+      },
 
+      _gotoSplash: function() {
+        this.selectedPage = 'splash';
+      }
     });
   </script>
 </dom-module>

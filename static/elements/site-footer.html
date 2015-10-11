@@ -1,0 +1,37 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="site-footer">
+  <template>
+    <style>
+      :host {
+        display: block;
+        margin: 16px 0;
+      }
+
+      footer {
+        @apply(--layout-horizontal);
+        padding: 16px 0;
+        border-width: 3px 0;
+        border-style: double;
+        border-color: var(--color-burlap);
+      }
+
+      footer > div {
+        @apply(--layout-flex);
+        text-align: center;
+      }
+    </style>
+
+    <footer>
+      <div>June 4th, 2016 at 4pm</div>
+      <div>Williamsport, MD</div>
+      <div>Zachary Jones <span class="amp">&amp;</span> Chelsea Eells</div>
+    </footer>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'site-footer'
+    });
+  </script>
+</dom-module>

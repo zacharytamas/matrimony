@@ -1,7 +1,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animatable.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
 
 <link rel="import" href="site-header.html">
+<link rel="import" href="photo-cover.html">
 
 <dom-module id="matrimony-site">
   <template>
@@ -11,23 +16,25 @@
 
         --color-coral: #ff776f;
         --color-burlap: #EEE6CF;
+        --color-mint: #D4FFDE;
+        --size-master: 960px;
+        --font-text: Arvo;
+      }
+
+      neon-animated-pages {
+        max-width: var(--size-master);
+        margin: 0 auto;
       }
     </style>
 
-    <paper-header-panel class="fit" mode="waterfall">
+    <paper-header-panel class="fit" mode="waterfall-tall">
       <site-header class="paper-header"></site-header>
 
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eligendi eum sapiente at, ea, minima ex laudantium dolorem odit quod non, asperiores dolore assumenda magnam repellendus illum inventore, officia sit.</p>
-      </div>
+      <neon-animated-pages class="fit" selected="0">
+        <neon-animatable>
+          <photo-cover></photo-cover>
+        </neon-animatable>
+      </neon-animated-pages>
     </paper-header-panel>
 
   </template>

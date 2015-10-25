@@ -11,7 +11,6 @@ class PageHandler(webapp2.RequestHandler):
   element_name = None
 
   def get(self):
-    logging.info('here ' + self.element_name)
     self.response.write(render_to_text('page.html', {
       'element_name': self.element_name
     }))

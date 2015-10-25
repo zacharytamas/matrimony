@@ -2,3 +2,5 @@ bower_components
 node_modules
 static/dist
 *.pyc
+credentials.json
+libs

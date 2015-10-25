@@ -1,3 +1,3 @@
 from google.appengine.ext import vendor
 
-# vendor.add("libs")
+vendor.add("libs")

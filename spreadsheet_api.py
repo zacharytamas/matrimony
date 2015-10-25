@@ -72,6 +72,15 @@ class SpreadsheetService(object):
     """Finds the row of the spreadsheet which corresponds to a
     given RSVP code."""
 
+    # TODO This O(n) search is pretty time-consuming. Depending on what I end
+    # up using for the invite codes, I may can come up with a heuristic which
+    # will let me find the row number in O(1) time. To do that though will
+    # make the code more brittle because then we can't resort the invite
+    # list in the spreadsheet without breaking the website. This may not be
+    # a problem though if we just, for example, said "No sorting". There's
+    # only a handful of us using the spreadsheet anyway so it may be okay
+    # to just make that rule.
+
     try:
       return self.worksheet.col_values(COL_INDEXES["rsvpCode"]).index(code) + 1
     except ValueError:

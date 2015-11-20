@@ -38,8 +38,10 @@
 
       <site-header class="paper-header"
         selected-page="{{selectedPage}}"></site-header>
-
-      <div id="content"></div>
+      <div>
+      <content select=".content"></content>
+      </div>
+    </paper-header-panel>
 
   </template>
   <script>
@@ -57,11 +59,6 @@
           type: String,
           observer: '_pageElementChanged'
         }
-      },
-
-      _pageElementChanged: function(newValue) {
-        var el = document.createElement(newValue);
-        this.$.content.appendChild(el);
       }
     });
   </script>

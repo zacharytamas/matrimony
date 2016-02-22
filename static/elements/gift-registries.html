@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="gift-registries">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .registries {
+        @apply(--layout-horizontal);
+        margin-top: 36px;
+      }
+
+      .registry {
+        @apply(--layout-flex);
+        text-align: center;
+      }
+
+      .registry img {
+        max-width: 50%;
+      }
+
+    </style>
+
+    <h1>Gift registries</h1>
+
+    <p>If you'd like to bring along a gift, you can take a peek at some things
+      we'd love to receive by clicking the logos below!</p>
+
+    <div class="registries">
+      <div class="registry">
+        <a href="http://www.target.com/gift-registry/giftgiver?registryId=WLZ0nI6u72oSjZuTKTJs-Q&registryType=WEDDING" target="_blank">
+          <img src="/static/images/target.png" alt="Target logo">
+        </a>
+      </div>
+      <div class="registry">
+        <a href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&registryId=543133907&pwsurl=" target="_blank">
+          <img src="/static/images/bed-bath-beyond.png" alt="Bed Bath and Beyond logo">
+        </a>
+      </div>
+    </div>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'gift-registries',
+
+    });
+  </script>
+</dom-module>

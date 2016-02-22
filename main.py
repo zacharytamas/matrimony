@@ -13,7 +13,7 @@ class PageHandler(webapp2.RequestHandler):
   element_name = None
 
   def get(self):
-    self.response.write(render_to_text('page.html', {
+    self.response.write(render_to_text('%s.html' % self.element_name, {
       'element_name': self.element_name
     }))
 
@@ -55,7 +55,7 @@ class RSVPHandler(webapp2.RequestHandler):
     # TODO Return properly
 
 app = webapp2.WSGIApplication([
-  webapp2.Route('/',                       PageHandler.HandlerFor('photo-cover')),
+  webapp2.Route('/',                       PageHandler.HandlerFor('home')),
   webapp2.Route('/staying-there/',         PageHandler.HandlerFor('staying-there')),
   webapp2.Route('/rsvp/api/guest-lookup/', RSVPHandler, handler_method='guestLookup'),
   # TODO Make respond POST-only

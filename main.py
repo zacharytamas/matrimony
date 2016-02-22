@@ -56,6 +56,7 @@ class RSVPHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
   webapp2.Route('/',                       PageHandler.HandlerFor('home')),
+  webapp2.Route('/gift-registries/',       PageHandler.HandlerFor('registries')),
   webapp2.Route('/staying-there/',         PageHandler.HandlerFor('staying-there')),
   webapp2.Route('/rsvp/api/guest-lookup/', RSVPHandler, handler_method='guestLookup'),
   # TODO Make respond POST-only

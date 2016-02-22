@@ -75,6 +75,9 @@ class SpreadsheetService(object):
     """Finds the row of the spreadsheet which corresponds to a
     given RSVP code."""
 
+    # Find the number in the code and convert it to an integer.
+    # Codes come in a format like this: `JONES5` where the final number
+    # is the spreadsheet row number. This lets us find it in constant time.
     row_number = map(lambda e: int(e), re.findall('\d+', code))
     if len(row_number):
       return row_number[0]

@@ -15,6 +15,7 @@ COL_INFO_NAME_PRIMARY = 1
 
 COL_NAMES = [
   "primaryName",
+  "mailingName",
   "secondaryNames",
   "expectedHeadCount",
   "brideOrGroom",
@@ -23,6 +24,7 @@ COL_NAMES = [
   "addressCity",
   "addressState",
   "addressZipCode",
+  "sdEnvelopePrinted",
   "-",
   "rsvpCode",
   "rsvpResponseMethod",

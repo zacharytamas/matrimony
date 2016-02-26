@@ -1,14 +1,15 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/google-map/google-map.html">
 <link rel="import" href="../../../bower_components/google-map/google-map-directions.html">
-<link rel="import" href="../../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
-<link rel="import" href="../../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../../bower_components/google-map/google-map.html">
+<link rel="import" href="../../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../../bower_components/paper-menu/paper-menu.html">
 
 <link rel="import" href="hotels.html">
 
 <dom-module id="staying-there">
   <template>
+    <style is="custom-style" include="shared-styles"></style>
     <style>
       :host {
         display: block;
@@ -16,16 +17,32 @@
 
       .container {
         @apply(--layout-horizontal);
+        @apply(--layout-start);
       }
 
       .container .hotel-list {
+        --paper-card-background-color: var(--color-coral);
+        --paper-card-header-color: white;
         width: 240px;
+      }
 
+      .hotel-list paper-menu {
+        background-color: white;
+      }
+
+      .hotel-list paper-menu paper-item {
+        cursor: pointer;
       }
 
       .hotel-detail {
         @apply(--layout-vertical);
         @apply(--layout-flex);
+        padding: 0 1rem;
+      }
+
+      .hotel-detail > paper-card {
+        /*background: var(--color-gold);*/
+
       }
 
       .hotel-detail > div {
@@ -48,26 +65,37 @@
     </google-map-directions>
 
     <div class="container">
-      <div class="hotel-list">
+
+      <paper-card heading="Nearby Hotels" class="hotel-list">
         <paper-menu selected="{{selectedIndex}}">
           <template is="dom-repeat" items="{{hotels}}">
             <paper-item>[[item.name]]</paper-item>
           </template>
         </paper-menu>
-      </div>
+      </paper-card>
+
       <div class="hotel-detail">
 
-        <google-map id="mapEl" api-key="AIzaSyBaOLunG39Qqixju2ugr9W3iaVG1lAQJ1o"
-          on-api-load="_mapsApiLoaded"
-          libraries="places" fit-to-markers disable-default-ui
-          language="en">
-        </google-map>
+        <paper-card elevation="2">
+          <div class="card-content">
+            <google-map id="mapEl"
+              api-key="AIzaSyBaOLunG39Qqixju2ugr9W3iaVG1lAQJ1o"
+              on-api-load="_mapsApiLoaded"
+              libraries="places" fit-to-markers disable-default-ui
+              language="en">
+            </google-map>
 
-        <div class="details">
-          <h1>[[selectedHotel.name]]</h1>
+            <div class="details">
+              <h1>[[selectedHotel.name]]</h1>
+              <address>
+                <div>[[selectedHotel.address]]</div>
+              </address>
 
-          <p>This hotel is a <span>[[_renderDriveDistance(directionsResponse)]]</span> drive from the wedding venue, which is usually driveable in about <span>[[_renderDriveTime(directionsResponse)]]</span>.</p>
-        </div>
+              <p>This hotel is a <span>[[_renderDriveDistance(directionsResponse)]]</span> drive from the wedding venue, which is usually driveable in about <span>[[_renderDriveTime(directionsResponse)]]</span>.</p>
+            </div>
+          </div>
+        </paper-card>
+
 
       </div>
     </div>
@@ -104,8 +132,6 @@
         this.$.directionsEl.endAddress = M.weddingAddress;
       },
 
-
-
       _selectedIndexChanged: function(newValue, oldValue) {
         this.selectedHotel = this.hotels[newValue];
       },
@@ -119,7 +145,7 @@
         var leg = route.legs[0];
 
         var miles = leg.distance.value * METERS_TO_MILES;
-        return miles.toFixed(2) + " mile";
+        return miles.toFixed(2) + ' mile';
       },
 
       _renderDriveTime: function(response) {
@@ -127,7 +153,7 @@
         var leg = route.legs[0];
 
         var minutes = leg.duration.value / SECONDS_TO_MINUTES;
-        return minutes.toFixed(0) + " minutes"
+        return minutes.toFixed(0) + ' minutes';
       }
     });
   })();

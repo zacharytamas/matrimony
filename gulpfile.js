@@ -54,7 +54,8 @@ gulp.task('vulcanize', function() {
     .pipe($.vulcanize({
       stripComments: true,
       inlineCss: true,
-      inlineScripts: true
+      inlineScripts: true,
+      stripExcludes: false
     }))
     .pipe(gulp.dest(DEST_DIR))
     .pipe($.size({title: 'vulcanize'}));

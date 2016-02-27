@@ -9,16 +9,22 @@
 
       .registries {
         @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+        max-width: 900px;
+        margin: 0 auto;
         margin-top: 36px;
       }
 
       .registry {
-        @apply(--layout-flex);
+        /*@apply(--layout-flex);*/
         text-align: center;
+        max-width: 250px;
+        min-width: 150px;
+        margin: 0 50px 50px 0;
       }
 
       .registry img {
-        max-width: 50%;
+        max-width: 100%;
       }
 
     </style>
@@ -37,6 +43,11 @@
       <div class="registry">
         <a href="http://www.bedbathandbeyond.com/store/giftregistry/view_registry_guest.jsp?pwsToken=&eventType=Wedding&registryId=543133907&pwsurl=" target="_blank">
           <img src="/static/images/bed-bath-beyond.png" alt="Bed Bath and Beyond logo">
+        </a>
+      </div>
+      <div class="registry">
+        <a href="http://www.crateandbarrel.com/gift-registry/chelsea-eells-and-zachary-jones/r5489682" target="_blank">
+          <img src="/static/images/crate-and-barrel-logo.png" alt="Crate and Barrel logo">
         </a>
       </div>
     </div>

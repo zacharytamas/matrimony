@@ -1,5 +1,7 @@
 # matrimony
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zacharytamas/matrimony.svg)](https://greenkeeper.io/)
+
 This is the website for my wedding.
 
 ## Developing
